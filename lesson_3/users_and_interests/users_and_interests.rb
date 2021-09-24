@@ -10,7 +10,6 @@ before do
   @users = YAML.load_file('users.yml')
   @names = @users.keys.map(&:to_s).map(&:capitalize)
   @total_users = @users.size
-  @total_interests = count_interests
 end
 
 helpers do

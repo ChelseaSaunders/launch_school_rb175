@@ -1,0 +1,10 @@
+<h2><%= @name %></h2>
+<h4>e-mail address:</h4>
+  <p><%= @email %></p>
+<h4>Interests:</h4>
+  <p><%= @interests.join(", ") %></p>
+
+<h4>View other user pages:</h4>
+  <ul>
+    <%= generate_user_page_links(@other_users_names) %>
+  </ul>

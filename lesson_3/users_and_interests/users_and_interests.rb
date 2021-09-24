@@ -13,19 +13,21 @@ before do
   @total_interests = count_interests
 end
 
-def count_interests
-  interests = []
-  @users.each_value {|username| interests << username[:interests] }
-  interests.flatten.uniq.count
-end
-
-def generate_user_page_links(user_list)
-  link_list = ""
-  user_list.each do |name|
-    link_list <<  "<li><a href='/user_page/#{name}'>#{name}</a></li>"
+helpers do
+  def count_interests
+    interests = []
+    @users.each_value {|username| interests << username[:interests] }
+    interests.flatten.uniq.count
   end
 
-  link_list
+  def generate_user_page_links(user_list)
+    link_list = ""
+    user_list.each do |name|
+      link_list <<  "<li><a href='/user_page/#{name}'>#{name}</a></li>"
+    end
+
+    link_list
+  end
 end
 
 get '/' do
